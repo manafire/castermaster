@@ -1,7 +1,7 @@
 <% title "All Episodes" %>
 
 <div class="content">
-  <% form_tag archive_episodes_path, :method => 'get' do %>
+  <%= form_tag archive_episodes_path, :method => 'get' do %>
     <p>
       <%= text_field_tag :search, params[:search] %>
       <%= submit_tag "Search", :name => nil %>
