@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
-  include HoptoadNotifier::Catcher if APP_CONFIG['hoptoad_key']
   
   private
   
