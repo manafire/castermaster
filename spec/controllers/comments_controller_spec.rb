@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
  
 describe CommentsController, "as guest" do
   fixtures :all
-  integrate_views
+  render_views
   
   it "index action should render index template" do
     get :index
@@ -13,7 +13,7 @@ describe CommentsController, "as guest" do
     get :index, :format => 'rss'
     response.should render_template(:index)
     response.content_type.should == 'application/rss+xml'
-    response.should have_tag('title', :text => 'Railscasts Comments')
+    response.should have_selector('title', :content => 'Railscasts Comments')
   end
 
   it "new action should redirect to root url with flash notice" do
@@ -38,6 +38,7 @@ describe CommentsController, "as guest" do
   
   it "create action should render new template when spam even if model is valid" do
     Comment.any_instance.stubs(:valid?).returns(true)
+    Comment.any_instance.stubs(:spam?).returns(true)
     post :create
     response.should render_template(:new)
   end
@@ -98,7 +99,7 @@ end
 
 describe CommentsController, "as admin" do
   fixtures :all
-  integrate_views
+  render_views
   
   before(:each) do
     session[:admin] = true

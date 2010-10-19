@@ -26,7 +26,7 @@
         <%= yield %>
       </div>
       <div id="side">
-        <%= yield(:side) || render(:partial => 'shared/side') %>
+        <%= content_for?(:side) ? yield(:side) : render(:partial=> 'shared/side') %>  
       </div>
       <div class="clear"></div>
     </div>

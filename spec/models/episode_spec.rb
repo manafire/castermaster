@@ -36,7 +36,9 @@ describe Episode do
   
   it "should have published month" do
     episode = Episode.new(:published_at => '2008-01-03')
-    episode.published_month.should == Time.parse('2008-01-01')
+    # this fails b/c of time zonesK
+    # episode.published_month.should == Time.parse('2008-01-01')
+    episode.published_month.strftime("%Y-%m-%d").should == '2008-01-01'
   end
   
   it "should automatically generate permalink when creating episode" do

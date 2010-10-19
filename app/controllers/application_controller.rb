@@ -1,13 +1,6 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
-  helper :all # include all helpers, all the time
+  protect_from_forgery
 
-  # See ActionController::RequestForgeryProtection for details
-  # Uncomment the :secret if you're not using the cookie session store
-  protect_from_forgery # :secret => 'fc8393e85d1780ae56953606f53014e1'
-  
   include HoptoadNotifier::Catcher if APP_CONFIG['hoptoad_key']
   
   private
@@ -28,4 +21,5 @@ class ApplicationController < ActionController::Base
     @current_spam_question ||= SpamQuestion.find(session[:spam_question_id]) if session[:spam_question_id]
   end
   helper_method :current_spam_question
+  
 end

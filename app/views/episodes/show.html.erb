@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="episodes">
-  <% render :layout => @episode do %>
+  <%= render :layout => @episode do %>
     <div class="notes">
       <%= textilize @episode.notes %>
     </div>
