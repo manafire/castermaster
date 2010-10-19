@@ -2,7 +2,7 @@ class SponsorsController < ApplicationController
   before_filter :authorize
   
   def index
-    @sponsors = Sponsor.find(:all)
+    @sponsors = Sponsor.all
   end
   
   def new

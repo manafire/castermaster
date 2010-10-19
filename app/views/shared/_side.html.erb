@@ -16,7 +16,7 @@
 <div class="section">
   <strong>tags:</strong>
   <ul id="tags">
-  <% for tag in Tag.find(:all, :order => 'name') %>
+  <% for tag in Tag.order("name") %>
     <li><%= link_to h(tag.name), tag_path(tag) %></li>
   <% end %>
   </ul>
