@@ -33,15 +33,6 @@ module Castermaster
     # config.time_zone = 'Central Time (US & Canada)'
     config.time_zone = 'Pacific Time (US & Canada)'
 
-    # Your secret key for verifying cookie session data integrity.
-    # If you change this key, all old sessions will become invalid!
-    # Make sure the secret is at least 30 characters and all random, 
-    # no regular words or you'll be exposed to dictionary attacks.
-    config.action_controller.session = {
-      :session_key => APP_CONFIG['session_key'],
-      :secret      => APP_CONFIG['session_secret']
-    }
-
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
