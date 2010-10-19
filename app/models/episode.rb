@@ -5,11 +5,7 @@ class Episode < ActiveRecord::Base
   has_many :downloads, :dependent => :destroy
   
   acts_as_list
-  
-  named_scope :published, lambda { {:conditions => ['published_at <= ?', Time.now.utc]} }
-  named_scope :unpublished, lambda { {:conditions => ['published_at > ?', Time.now.utc]} }
-  scope :recent, order('position DESC')
-  
+    
   validates_presence_of :published_at, :name
   validates_associated :downloads, :on => :update # create automatically handles validation
   
@@ -102,6 +98,22 @@ class Episode < ActiveRecord::Base
     min, sec = *duration.split(':').map(&:to_i)
     self.seconds = min*60 + sec
   end
+
+  
+  class << self
+    def published
+      where(['published_at <= ?', Time.now.utc])
+    end
+    
+    def unpublished
+      where(['published_at > ?', Time.now.utc])
+    end
+    
+    def recent
+      order('position DESC')
+    end
+  end
+
   
   private
   
