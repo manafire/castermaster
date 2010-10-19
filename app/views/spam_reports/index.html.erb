@@ -17,9 +17,9 @@
     <tr>
       <td><%= check_box_tag "id[]", spam_report.id, false %></td>
       <td><%= link_to h(spam_report.comment_name), spam_report %></td>
-      <td><%=h spam_report.comment_ip %></td>
-      <td><%=h spam_report.comment_site_url %></td>
-      <td><%=h spam_report.hit_count %></td>
+      <td><%= spam_report.comment_ip %></td>
+      <td><%= spam_report.comment_site_url %></td>
+      <td><%= spam_report.hit_count %></td>
     </tr>
   <% end %>
 </table>

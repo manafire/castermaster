@@ -12,7 +12,7 @@
   </div>
   <div class="main">
     <h2><%= link_to_unless_current h(episode.name), episode %></h2>
-    <div class="description"><%=h episode.description %></div>
+    <div class="description"><%= episode.description %></div>
     <% unless episode.tags.empty? %>
       <div class="tags">
         Tags:

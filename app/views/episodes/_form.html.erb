@@ -32,7 +32,7 @@
     <% for download in @episode.downloads %>
       <%= fields_for_download(download) do |d| %>
         <%= error_messages_for :download, :object => download %>
-        <h3><%=h download.format %></h3>
+        <h3><%= download.format %></h3>
         <div><%= d.hidden_field :format %></div>
         <p>
           <%= d.label :url, 'File URL' %><br />

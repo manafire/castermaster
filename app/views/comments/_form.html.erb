@@ -7,7 +7,7 @@
   </div>
   <% if current_spam_question %>
     <p id="spam_question">
-      <strong><%=h current_spam_question.question %></strong><br />
+      <strong><%= current_spam_question.question %></strong><br />
       <%= text_field_tag :spam_answer %>
     </p>
   <% end %>
